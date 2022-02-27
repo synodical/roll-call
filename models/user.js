@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => (
             type: DataTypes.STRING(15),
             allowNull: false,
         },
+        floor: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+        },
         password: {
             type: DataTypes.STRING(100),
             allowNull: true,

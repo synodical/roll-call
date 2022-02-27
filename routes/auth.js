@@ -7,7 +7,7 @@ const User = require('../models').User;
 const router = express.Router();
 
 router.post('/join', isNotLoggedIn, async (req, res, next) => {
-  const { email, nick, password } = req.body;
+  const { email, nick, floor, password } = req.body;
   try {
     const exUser = await User.findOne({ where: { email } });
     if (exUser) {
@@ -17,6 +17,7 @@ router.post('/join', isNotLoggedIn, async (req, res, next) => {
     await User.create({
       email,
       nick,
+      floor,
       password: hash,
     });
     return res.redirect('/');

@@ -11,42 +11,39 @@
 
 <body>
   <div class="container">
-    <div class="profile-wrap">
-      <div class="profile">
-        {% if user and user.id %}
-        <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}</div>
-        <div class="half">
-          <div>팔로잉</div>
-          <div class="count following-count">{{followingCount}}</div>
+    <center>
+      <div class="profile-wrap">
+        <div class="profile">
+          {% if user and user.id %}
+          <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}</div>
+          <div class="user-floor">{{user.floor + '층 잘 부탁드립니다!'}}</div>
+          <input id="my-id" type="hidden" value="{{user.id}}">
+          <a id="my-profile" href="/profile" class="btn">내 프로필</a>
+          <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
+          <a id="update" href="/update" class="btn">정보 수정</a>
+          {% else %}
+          <form id="login-form" action="/auth/login" method="post">
+            <div class="input-group">
+              <label for="email">이메일</label>
+              <input id="email" type="email" name="email" required autofocus>
+            </div>
+            <div class="input-group">
+              <label for="password">비밀번호</label>
+              <input id="password" type="password" name="password" required>
+            </div>
+            <a id="join" href="/join" class="btn">회원가입</a>
+            <button id="login" type="submit" class="btn">로그인</button>
+            <a id="kakao" href="/auth/kakao" class="btn">카카오톡</a>
+          </form>
+          {% endif %}
         </div>
-        <div class="half">
-          <div>팔로워</div>
-          <div class="count follower-count">{{followerCount}}</div>
-        </div>
-        <input id="my-id" type="hidden" value="{{user.id}}">
-        <a id="my-profile" href="/profile" class="btn">내 프로필</a>
-        <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
-        {% else %}
-        <form id="login-form" action="/auth/login" method="post">
-          <div class="input-group">
-            <label for="email">이메일</label>
-            <input id="email" type="email" name="email" required autofocus>
-          </div>
-          <div class="input-group">
-            <label for="password">비밀번호</label>
-            <input id="password" type="password" name="password" required>
-          </div>
-          <a id="join" href="/join" class="btn">회원가입</a>
-          <button id="login" type="submit" class="btn">로그인</button>
-          <a id="kakao" href="/auth/kakao" class="btn">카카오톡</a>
-        </form>
-        {% endif %}
+        <footer>
+          Made by&nbsp;
+          <a href="https://synodic.tistory.com/" target="_blank" rel="noreferrer noopener">Synodic</a>
+        </footer>
       </div>
-      <footer>
-        Made by&nbsp;
-        <a href="https://www.zerocho.com" target="_blank">ZeroCho</a>
-      </footer>
-    </div>
+    </center>
+    
     {% block content %}
     {% endblock %}
   </div>
