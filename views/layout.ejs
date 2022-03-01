@@ -18,7 +18,7 @@
           <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}</div>
           <div class="user-floor">{{user.floor + '층 잘 부탁드립니다!'}}</div>
           <input id="my-id" type="hidden" value="{{user.id}}">
-          <a id="my-profile" href="/profile" class="btn">내 프로필</a>
+          <a id="my-profile" href="/user/{{user.id}}" class="btn">내 프로필</a>
           <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
           <a id="update" href="/update" class="btn">정보 수정</a>
           {% else %}
@@ -43,7 +43,7 @@
         </footer>
       </div>
     </center>
-    
+
     {% block content %}
     {% endblock %}
   </div>
