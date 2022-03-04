@@ -1,7 +1,5 @@
 /node_modules
 
-/bin/www
-
 /config/config.json
 
 dev.js

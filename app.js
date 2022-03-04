@@ -7,6 +7,7 @@ const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
 const flash = require('connect-flash');
 const passport = require('passport');
+const ejs = require('ejs');
 
 dotenv.config();
 const pageRouter = require('./routes/page');
