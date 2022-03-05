@@ -3,7 +3,7 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const User = require('../models').User;
 const router = express.Router();
 router.get('/user/:id', isLoggedIn, (req, res) => {
-    res.render('profile', { title: '내 정보 수정', user: req.user });
+    res.render('profile', { title: '프로필 조회', user: req.user });
 });
 
 router.post('/user/:id', isLoggedIn, (req, res) => {
@@ -28,7 +28,7 @@ router.get('/join', isNotLoggedIn, (req, res) => {
 
 router.get('/', (req, res, next) => {
     res.render('main', {
-        titie: '점호',
+        title: '점호',
         user: req.user,
         loginError: req.flash('loginError'),
     });
