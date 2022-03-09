@@ -7,11 +7,11 @@ const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
 const flash = require('connect-flash');
 const passport = require('passport');
-const ejs = require('ejs');
 
 dotenv.config();
 const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -52,6 +52,7 @@ app.use(passport.session());
 
 app.use('/', pageRouter);
 app.use('/auth', authRouter);
+app.use('/user', userRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
