@@ -1,8 +1,6 @@
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
-const User = require('../models').User;
 const router = express.Router();
-
 
 router.get('/list', isLoggedIn, (req, res) => {
     res.render('list', { title: '사생 목록', user: req.user });
