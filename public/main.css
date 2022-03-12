@@ -16,7 +16,7 @@ p { width: 100px; margin: 0 auto; }
   vertical-align: top;
   font-size: 12px;
 }
-input[type='text'], input[type='email'], input[type='password'], textarea {
+input[type='text'], input[type='uid'], input[type='password'], textarea {
   border-radius: 4px;
   height: 37px;
   padding: 10px;

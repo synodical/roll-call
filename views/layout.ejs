@@ -4,7 +4,7 @@
 {% include "head.ejs" %}
 
 <body>
-  
+
   <div class="container">
     <center>
       <div><a href="/">home</a></div>
@@ -21,8 +21,8 @@
           {% else %}
           <form id="login-form" action="/auth/login" method="post">
             <div class="input-group">
-              <label for="email">이메일</label>
-              <input id="email" type="email" name="email" required autofocus>
+              <label for="uid">uid</label>
+              <input id="uid" type="uid" name="uid" required autofocus>
             </div>
             <div class="input-group">
               <label for="password">비밀번호</label>

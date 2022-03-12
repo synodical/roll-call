@@ -8,7 +8,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
 });
 
 router.post('/:id', isLoggedIn, (req, res) => {
-  User.update({ email: req.body.email, nick: req.body.nick, floor: req.body.floor }, {
+  User.update({ uid: req.body.uid, nick: req.body.nick, floor: req.body.floor }, {
     where: {
       id: req.params.id
     }
