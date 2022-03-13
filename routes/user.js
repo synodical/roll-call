@@ -1,4 +1,3 @@
-// user router를 따로 만들어야하는가?
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const User = require('../models').User;
@@ -29,7 +28,11 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
       },
     });
     console.log(residents);
-    res.json(residents);
+    res.render('list', {
+      title: '사생 명단',
+      user: req.user,
+      residents
+    });
   } catch (err) {
     console.log(err);
     next(err);

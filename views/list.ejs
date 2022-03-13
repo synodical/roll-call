@@ -1,0 +1,15 @@
+{% extends 'layout.ejs' %}
+
+{% block content %}
+<div>
+  {% if resident %}
+  <h1>
+    사생 있음
+  </h1>
+  {% else %}
+  <h1>
+    사생 없음
+  </h1>
+  {% endif %}
+</div>
+{% endblock %}
