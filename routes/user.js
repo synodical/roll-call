@@ -3,6 +3,7 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const User = require('../models').User;
 const Resident = require('../models').Resident;
 const router = express.Router();
+
 router.get('/:id', isLoggedIn, (req, res) => {
   res.render('profile', { title: '프로필 조회', user: req.user });
 });
