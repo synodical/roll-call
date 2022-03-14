@@ -26,6 +26,7 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
       include: {
         model: User,
         where: { id: req.params.id }, //요청에서 라우트로 들어오는 id값
+        order: [['room', 'ASC']],
       },
     });
     console.log(residents);
