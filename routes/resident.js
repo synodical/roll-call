@@ -27,12 +27,13 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
 
 router.post('/:id/list', isLoggedIn, async (req, res, next) => {
   const { room, name } = req.body;
+  //console.log(req.params.id);
   var id = req.params.id;
   try {
     await Resident.create({
-      room,
-      name,
-      user_id : req.params.id,
+      room: room,
+      name: name,
+      user_id: req.user.uid,
     });
     return res.redirect(`/resident/${id}/list`);
   } catch (err) {
