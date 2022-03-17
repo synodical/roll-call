@@ -1,5 +1,7 @@
 const express = require('express');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+const User = require('../models').User;
+const Resident = require('../models').Resident;
 const router = express.Router();
 
 router.get('/list', isLoggedIn, (req, res) => {
@@ -14,11 +16,25 @@ router.get('/join', isNotLoggedIn, (req, res) => {
     });
 });
 
-router.get('/', (req, res, next) => {
-    res.render('main', {
-        title: '점호',
-        user: req.user,
-        loginError: req.flash('loginError'),
-    });
+router.get('/', async (req, res, next) => {
+    try {
+        const residents = await Resident.findAll({
+            include: {
+                model: User,
+                where: { uid: req.user.uid },
+                order: [['room', 'ASC']],
+            },
+        });
+         console.log(residents);
+        res.render('main', {
+            title: '점호',
+            user: req.user,
+            residents: residents,
+            loginError: req.flash('loginError'),
+        });
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
 });
 module.exports = router;

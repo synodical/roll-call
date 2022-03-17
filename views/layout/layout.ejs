@@ -16,7 +16,7 @@
           <input id="my-id" type="hidden" value="{{user.id}}">
           <a id="my-profile" href="/user/{{user.id}}" class="btn">내 프로필</a>
           <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
-          <a id="resident-list" href="/resident/{{user.id}}/list" class="btn">사생 목록</a>
+          <a id="resident-list" href="/resident/{{user.id}}/list" class="btn">사생 목록 수정</a>
 
           {% else %}
           <form id="login-form" action="/auth/login" method="post">

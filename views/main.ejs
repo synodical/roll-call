@@ -2,6 +2,12 @@
 
 {% block content %}
 
+<div>
+  {% for resident in residents %}
+  <ul>{{resident.room}} {{resident.name}}</ul>
+  {% endfor %}
+</div>
+
 {% endblock %}
 
 {% block script %}
