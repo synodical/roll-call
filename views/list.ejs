@@ -2,10 +2,7 @@
 
 {% block content %}
 <div>
-  {% if resident %}
-  <h1>
-    사생 있음
-  </h1>
+  {% if residents %}
   <div class="timeline">
     <form id="resi-form" action="/resident/{{user.id}}/list" method="post">
       <div class="input-group">
@@ -19,10 +16,17 @@
       <button id="resi-btn" type="submit" class="btn">사생 추가</button>
     </form>
   </div>
+  <div>
+    {% for resident in residents %}
+    <ul>{{resident.room}} {{resident.name}}</ul>
+    {% endfor %}
+  </div>
+
+
   {% else %}
-  <h1>
-    사생 없음
-  </h1>
+  <h2>
+    사생 명단을 입력해주세요
+  </h2>
   <div class="timeline">
     <form id="resi-form" action="/resident/{{user.id}}/list" method="post">
       <div class="input-group">

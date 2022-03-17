@@ -9,15 +9,15 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
     const residents = await Resident.findAll({
       include: {
         model: User,
-        where: { id: req.params.id }, //요청에서 라우트로 들어오는 id값
+        where: { uid: req.user.uid },
         order: [['room', 'ASC']],
       },
     });
-    console.log(residents);
+    // console.log(residents);
     res.render('list', {
       title: '사생 명단',
       user: req.user,
-      residents
+      residents: residents,
     });
   } catch (err) {
     console.log(err);
@@ -33,7 +33,7 @@ router.post('/:id/list', isLoggedIn, async (req, res, next) => {
     await Resident.create({
       room: room,
       name: name,
-      user_id: req.user.uid,
+      user_id: req.user.id,
     });
     return res.redirect(`/resident/${id}/list`);
   } catch (err) {

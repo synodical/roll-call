@@ -13,7 +13,7 @@ db.Sequelize = Sequelize;
 db.User = require('./user')(sequelize, Sequelize);
 db.Resident = require('./resident')(sequelize, Sequelize);
 
-db.User.hasMany(db.Resident, { foreignKey: "user_id", sourceKey: "uid" });
-db.Resident.belongsTo(db.User, { foreignKey: "user_id", sourceKey: "uid" });
+db.User.hasMany(db.Resident, { foreignKey: "user_id", sourceKey: "id" });
+db.Resident.belongsTo(db.User, { foreignKey: "user_id", sourceKey: "id" });
 
 module.exports = db;
