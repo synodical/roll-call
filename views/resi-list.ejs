@@ -1,0 +1,13 @@
+<div>
+  <h3>{{user.floor}}층 사생 명단</h3>
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>방</th><th>이름</th>
+    </tr>
+    {% for resident in residents %}
+    <tr>
+      <td>{{resident.room}}</td><td>{{resident.name}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

@@ -2,11 +2,9 @@
 
 {% block content %}
 
-<div>
-  {% for resident in residents %}
-  <ul>{{resident.room}} {{resident.name}}</ul>
-  {% endfor %}
-</div>
+
+{% include "./resi-list.ejs" %}
+
 
 {% endblock %}
 
