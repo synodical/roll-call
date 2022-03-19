@@ -6,7 +6,7 @@
 - 담당 층 인원체크(재실, 점호 불응, 외박, 무단 외박)
 
 ## 🤩 To keep in mind!!
-- RESTful API
+- REST API
 - semantic url
 
 ## ❌ Not completed
