@@ -17,24 +17,30 @@ router.get('/join', isNotLoggedIn, (req, res) => {
 });
 
 router.get('/', async (req, res, next) => {
-    try {
-        const residents = await Resident.findAll({
-            include: {
-                model: User,
-                where: { uid: req.user.uid },
-                order: [['room', 'ASC']],
-            },
-        });
-         console.log(residents);
+    if (!req.user) {
         res.render('main', {
             title: '점호',
-            user: req.user,
-            residents: residents,
             loginError: req.flash('loginError'),
         });
-    } catch (err) {
-        console.log(err);
-        next(err);
+    } else {
+        try {
+            const residents = await Resident.findAll({
+                include: {
+                    model: User,
+                    where: { uid: req.user.uid },
+                    order: [['room', 'ASC']],
+                },
+            });
+            res.render('main', {
+                title: '점호',
+                user: req.user,
+                residents: residents,
+                loginError: req.flash('loginError'),
+            });
+        } catch (err) {
+            console.log(err);
+            next(err);
+        }
     }
 });
 module.exports = router;
