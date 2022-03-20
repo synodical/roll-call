@@ -25,10 +25,10 @@ router.get('/', async (req, res, next) => {
     } else {
         try {
             const residents = await Resident.findAll({
+                order: [['room', 'ASC']],
                 include: {
                     model: User,
                     where: { uid: req.user.uid },
-                    order: [['room', 'ASC']],
                 },
             });
             res.render('main', {

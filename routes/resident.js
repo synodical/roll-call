@@ -7,13 +7,13 @@ const router = express.Router();
 router.get('/:id/list', isLoggedIn, async (req, res, next) => {
   try {
     const residents = await Resident.findAll({
+      order: [['room', 'ASC']],
       include: {
         model: User,
         where: { uid: req.user.uid },
-        order: [['room', 'ASC']],
       },
     });
-    // console.log(residents);
+    console.log(residents);
     res.render('list', {
       title: '사생 명단',
       user: req.user,
