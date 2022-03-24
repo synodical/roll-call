@@ -6,6 +6,9 @@
         <th>방</th>
         <th>이름</th>
       </tr>
+
+    </thead>
+    <tbody>
       {% for resident in residents %}
       <tr>
         <td>{{resident.room}}</td>
@@ -15,7 +18,6 @@
         </td>
       </tr>
       {% endfor %}
-    </thead>
-    <tbody></tbody>
+    </tbody>
   </table>
 </div>

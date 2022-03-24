@@ -43,9 +43,10 @@
 {% block script %}
 <script>
   async function delRow(row) {
-    console.log(row)
     try {
       await axios.delete(`/resident/${row}`);
+      var parent = document.querySelector('#testTable tbody')
+      parent.removeChild(this.parentElement.parentElement)
     } catch (err) {
       console.error(err)
     }

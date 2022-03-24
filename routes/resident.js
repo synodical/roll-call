@@ -27,7 +27,6 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
 
 router.post('/:id/list', isLoggedIn, async (req, res, next) => {
   const { room, name } = req.body;
-  //console.log(req.params.id);
   var id = req.params.id;
   try {
     await Resident.create({
@@ -46,7 +45,7 @@ router.route('/:id')
   .delete(async (req, res, next) => {
     try {
       const result = await Resident.destroy({ where: { id: req.params.id } });
-      res.json(result);
+      res.json(result)
     } catch (err) {
       console.log(err);
       next(err)
