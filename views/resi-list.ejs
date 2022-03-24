@@ -10,6 +10,9 @@
       <tr>
         <td>{{resident.room}}</td>
         <td>{{resident.name}}</td>
+        <td>
+          <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}')">삭제</button>
+        </td>
       </tr>
       {% endfor %}
     </thead>

@@ -2,6 +2,7 @@
 
 {% block content %}
 <div>
+  <h1 id="hi">hi</h1>
   {% if residents %}
   <div class="timeline">
     <form id="resi-form" action="/user/{{user.id}}/list" method="post">
@@ -37,4 +38,17 @@
   </div>
   {% endif %}
 </div>
+{% endblock %}
+
+{% block script %}
+<script>
+  async function delRow(row) {
+    console.log(row)
+    try {
+      await axios.delete(`/resident/${row}`);
+    } catch (err) {
+      console.error(err)
+    }
+  }
+</script>
 {% endblock %}

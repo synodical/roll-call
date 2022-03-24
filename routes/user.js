@@ -29,7 +29,6 @@ router.get('/:id/list', isLoggedIn, async (req, res, next) => {
         where: { uid: req.user.uid },
       },
     });
-    console.log(residents);
     res.render('list', {
       title: '사생 명단',
       user: req.user,

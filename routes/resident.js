@@ -42,4 +42,14 @@ router.post('/:id/list', isLoggedIn, async (req, res, next) => {
   }
 });
 
+router.route('/:id')
+  .delete(async (req, res, next) => {
+    try {
+      const result = await Resident.destroy({ where: { id: req.params.id } });
+      res.json(result);
+    } catch (err) {
+      console.log(err);
+      next(err)
+    }
+  })
 module.exports = router;

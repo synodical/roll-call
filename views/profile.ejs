@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="timeline">
+  <h1 id="hi">hi</h1>
   <form id="join-form" action="/user/{{user.id}}" method="post">
     <div class="input-group">
       <label for="join-uid">id</label>
@@ -18,4 +19,11 @@
     <button id="join-btn" type="submit" class="btn">정보 수정</button>
   </form>
 </div>
+{% endblock %}
+{% block script %}
+<script>
+  window.onload = function() {
+    var a = document.getElementById('hi').innerHTML ="hello"
+  }
+</script>
 {% endblock %}
