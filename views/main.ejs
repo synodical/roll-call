@@ -9,5 +9,26 @@
 {% endblock %}
 
 {% block script %}
+<script>
+  async function delRow(row, obj) {
+    try {
+      await axios.delete(`/resident/${row}`);
+      var tr = obj.parentNode.parentNode;
+      tr.parentNode.removeChild(tr);
+    } catch (err) {
+      console.error(err)
+    }
+  }
+  function getCheckboxValue(event) {
+    let result = '';
+    if (event.target.checked) {
+      result = event.target.value;
+    } else {
+      result = '';
+    }
 
+    document.getElementById('result').innerText
+      = result;
+  }
+</script>
 {% endblock %}
