@@ -17,7 +17,8 @@
           <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
         </td>
         <td>
-          <input type='checkbox' value='재실' onclick='getCheckboxValue(event)' /> 재실
+          <input type='checkbox' id="in" name="in" value='재실' onclick='getCheckboxCnt(event)' />
+          <label for="in">재실</label>
         </td>
       </tr>
       {% endfor %}

@@ -19,16 +19,19 @@
       console.error(err)
     }
   }
-  function getCheckboxValue(event) {
-    let result = '';
-    if (event.target.checked) {
-      result = event.target.value;
-    } else {
-      result = '';
-    }
+  function getCheckboxCnt(event) {
+    // 선택된 목록 가져오기
+    const query = 'input[name="in"]:checked';
+    const selectedElements =
+      document.querySelectorAll(query);
 
+    // 선택된 목록의 갯수 세기
+    const selectedElementsCnt =
+      selectedElements.length;
+
+    // 출력
     document.getElementById('result').innerText
-      = result;
+      = selectedElementsCnt;
   }
 </script>
 {% endblock %}
