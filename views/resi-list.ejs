@@ -17,14 +17,22 @@
           <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
         </td>
         <td>
-          <label for="{{loop.index}}"><input type="checkbox" id="{{loop.index}}" name="in" value='재실'
-              onclick='getCheckboxCnt(event)' />
-            재실</label>
+          <label for="in{{loop.index}}"><input type="checkbox" id="in{{loop.index}}" name="in" value='재실'
+              onclick='getInCheckboxCnt(event)' />
+            재실
+          </label>
+        </td>
+        <td>
+          <label for="out{{loop.index}}"><input type="checkbox" id="out{{loop.index}}" name="out" value='무단'
+              onclick='getOutCheckboxCnt(event)' />
+            무단
+          </label>
         </td>
         <td>{{loop.index}}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
-  <div id='result'></div>
+  <div id="resultIn">0</div>
+  <div id="resultOut">0</div>
 </div>
