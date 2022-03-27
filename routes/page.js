@@ -5,25 +5,25 @@ const Resident = require('../models').Resident;
 const router = express.Router();
 
 router.get('/list', isLoggedIn, (req, res) => {
-    res.render('list', { title: '사생 목록', user: req.user });
+  res.render('list', { title: '사생 목록', user: req.user });
 });
 
 router.get('/join', isNotLoggedIn, (req, res) => {
-    res.render('join', {
-        title: '회원가입',
-        user: req.user,
-        joinError: req.flash('joinError'),
-    });
+  res.render('join', {
+    title: '회원가입',
+    user: req.user,
+    joinError: req.flash('joinError'),
+  });
 });
 
 router.get('/', async (req, res, next) => {
-    if (!req.user) {
-        res.render('main', {
-            title: '점호',
-            loginError: req.flash('loginError'),
-        });
-    } else {
-        try {
+  if (!req.user) {
+    res.render('main', {
+      title: '점호',
+      loginError: req.flash('loginError'),
+      });
+  } else {
+    try {
             const residents = await Resident.findAll({
                 order: [['room', 'ASC']],
                 include: {
@@ -37,10 +37,11 @@ router.get('/', async (req, res, next) => {
                 residents: residents,
                 loginError: req.flash('loginError'),
             });
-        } catch (err) {
+    } catch (err) {
             console.log(err);
-            next(err);
-        }
+      next(err);
     }
+  }
 });
+
 module.exports = router;
