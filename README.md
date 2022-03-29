@@ -10,8 +10,6 @@
 - semantic url
 
 ## ❌ Not completed
-- 사생 명단(방 번호, 이름) 저장
-- 사생 명단 옆 체크박스로 상태 기록 가능
 - 프로필 정보 수정할 수 있게 하기- `put` method로 
 - kakao login
 - 회원(층장) 탈퇴
@@ -19,3 +17,5 @@
 ## ⭕️ Completed
 - 프로필 정보 수정할 수 있게 하기
 - `layout.ejs`, `footer.ejs` 파일 분리
+- 사생 명단(방 번호, 이름) 저장
+- 사생 명단 옆 체크박스로 상태 기록 가능
