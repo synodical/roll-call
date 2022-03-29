@@ -17,38 +17,48 @@
           <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
         </td>
         <td>
-          <label for="in{{loop.index}}"><input type="checkbox" id="in{{loop.index}}" name="in" value='재실'
-              onclick='getCheckboxCnt(event, name)' />
-            재실
+          <label for="ok{{loop.index}}"><input type="checkbox" id="ok{{loop.index}}" name="ok" value='정상'
+              onclick='getCheckboxCnt(name)' />
+            정상
           </label>
         </td>
         <td>
           <label for="out{{loop.index}}"><input type="checkbox" id="out{{loop.index}}" name="out" value='무단'
-              onclick='getCheckboxCnt(event, name)' />
+              onclick='getCheckboxCnt(name); getResidents(name)' />
             무단
           </label>
         </td>
         <td>
-          <label for="ok{{loop.index}}"><input type="checkbox" id="ok{{loop.index}}" name="ok" value='정상'
-              onclick='getCheckboxCnt(event, name)' />
-            정상
+          <label for="no{{loop.index}}"><input type="checkbox" id="no{{loop.index}}" name="no" value='불응'
+              onclick='getCheckboxCnt(name); getResidents(name)' />
+            불응
           </label>
         </td>
-        <td>{{loop.index}}</td>
+        <td>
+          <label for="in{{loop.index}}"><input type="checkbox" id="in{{loop.index}}" name="in" value='재실'
+              onclick='getCheckboxCnt(name)' />
+            재실
+          </label>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
   <div>
-    총원 {{loop.index}}
-  </div>
-  <div>
-    재실 <span id="result-in">0</span>
-  </div>
-  <div>
-    무단 <span id="result-out">0</span>
+    총원 {{residents.length}}
   </div>
   <div>
     정상 <span id="result-ok">0</span>
+  </div>
+  <div>
+    무단 <span id="result-out">0</span> 
+    <div id="out-room"></div>
+  </div>
+  <div>
+    불응 <span id="result-no">0</span>
+    <div id="no-room"></div>
+  </div>
+  <div>
+    재실 <span id="result-in">0</span>
   </div>
 </div>
