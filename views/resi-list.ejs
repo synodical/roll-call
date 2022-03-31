@@ -6,16 +6,12 @@
         <th>방</th>
         <th>이름</th>
       </tr>
-
     </thead>
     <tbody>
       {% for resident in residents %}
       <tr>
         <td>{{resident.room}}</td>
         <td>{{resident.name}}</td>
-        <td>
-          <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
-        </td>
         <td>
           <label for="ok{{loop.index}}"><input type="checkbox" id="ok{{loop.index}}" name="ok" value='정상'
               onclick='getCheckboxCnt(name)' />

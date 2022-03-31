@@ -4,7 +4,29 @@
 <div>
   {% if residents %}
   {% include "./resi-form.ejs" %}
-  {% include "./resi-list.ejs" %}
+  <div class="timeline">
+    <h3>{{user.floor}}층 사생 명단</h3>
+    <table border="1" cellpadding="10" id="resi-list-id">
+      <thead>
+        <tr>
+          <th>방</th>
+          <th>이름</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for resident in residents %}
+        <tr>
+          <td>{{resident.room}}</td>
+          <td>{{resident.name}}</td>
+          <td>
+            <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div>총원 {{residents.length}} (새로고침 시 총 인원이 적용됩니다.)</div>
+  </div>
 
   {% else %}
   <h2>
@@ -16,16 +38,5 @@
 {% endblock %}
 
 {% block script %}
-<script>
-  async function delRow(row, obj) {
-    try {
-      await axios.delete(`/resident/${row}`);
-      var tr = obj.parentNode.parentNode;
-      tr.parentNode.removeChild(tr);
-    } catch (err) {
-      console.error(err)
-    }
-  }
-</script>
-<script src="main.js"></script>
+<script src="/main.js"></script>
 {% endblock %}

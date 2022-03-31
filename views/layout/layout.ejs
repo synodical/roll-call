@@ -4,7 +4,6 @@
 {% include "./head.ejs" %}
 
 <body>
-
   <div class="container">
     <center>
       <div><a href="/">home</a></div>
@@ -41,7 +40,7 @@
     {% endblock %}
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
+  
   <script>
     window.onload = () => {
       if (new URL(location.href).searchParams.get('loginError')) {
