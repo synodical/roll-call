@@ -35,7 +35,7 @@ router.get("/:id/list", isLoggedIn, async (req, res, next) => {
       },
     });
     res.render("list", {
-      title: "사생 명단",
+      title: "사생 목록",
       user: req.user,
       residents: residents,
     });

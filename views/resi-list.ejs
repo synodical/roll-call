@@ -9,12 +9,13 @@
     </thead>
     <tbody>
       {% for resident in residents %}
+      
       <tr>
         <td>{{resident.room}}</td>
         <td>{{resident.name}}</td>
         <td>
           <label for="ok{{loop.index}}"><input type="checkbox" id="ok{{loop.index}}" name="ok" value='정상'
-              onclick='getCheckboxCnt(name)' />
+              onclick='getCheckboxCnt(name); saveCheckbox(`ok{{loop.index}}`)' />
             정상
           </label>
         </td>
@@ -37,9 +38,13 @@
           </label>
         </td>
       </tr>
+     
       {% endfor %}
     </tbody>
   </table>
+
+  <button onclick="getCheckbox(`ok`, `{{residents.length}}` ) " >불러오기</button>
+
   <div>
     총원 {{residents.length}}
   </div>

@@ -36,3 +36,16 @@ function getResidents(name) {
   });
   document.getElementById(`${name}-room`).innerText = result;
 }
+
+function saveCheckbox(name) {
+  console.log(name);
+  var checkbox = document.getElementById(name);
+  localStorage.setItem(name, checkbox.checked);
+}
+
+function getCheckbox(name, numResidents) {
+  for (var i = 1; i <= parseInt(numResidents); i++) {
+    var checked = JSON.parse(localStorage.getItem(name + i));
+    document.getElementById(name + i).checked = checked;
+  }
+}
