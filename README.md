@@ -10,6 +10,7 @@
 - semantic url
 
 ## ❌ Not completed
+- localStorage에 점호하던 명단 저장 및 삭제 (.clear() method)
 - 프로필 정보 수정할 수 있게 하기- `put` method로 
 - kakao login
 - 회원(층장) 탈퇴
