@@ -49,3 +49,7 @@ function getCheckbox(name, numResidents) {
     document.getElementById(name + i).checked = checked;
   }
 }
+
+function deleteCheckbox() {
+  localStorage.clear();
+}
