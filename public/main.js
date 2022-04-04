@@ -40,14 +40,35 @@ function getResidents(name) {
 function saveCheckbox(name) {
   console.log(name);
   var checkbox = document.getElementById(name);
+  console.log(checkbox.checked);
   localStorage.setItem(name, checkbox.checked);
 }
 
-function getCheckbox(name, numResidents) {
+function getCheckbox(numResidents) {
+  console.log(localStorage);
+
+  for (var i = 1; i <= parseInt(numResidents); i++) {
+    var checked = JSON.parse(localStorage.getItem("ok" + i));
+    document.getElementById("ok" + i).checked = checked;
+  }
+  for (var i = 1; i <= parseInt(numResidents); i++) {
+    var checked = JSON.parse(localStorage.getItem("out" + i));
+    document.getElementById("out" + i).checked = checked;
+  }
+  for (var i = 1; i <= parseInt(numResidents); i++) {
+    var checked = JSON.parse(localStorage.getItem("no" + i));
+    document.getElementById("no" + i).checked = checked;
+  }
+  for (var i = 1; i <= parseInt(numResidents); i++) {
+    var checked = JSON.parse(localStorage.getItem("in" + i));
+    document.getElementById("in" + i).checked = checked;
+  }
+  /*
   for (var i = 1; i <= parseInt(numResidents); i++) {
     var checked = JSON.parse(localStorage.getItem(name + i));
     document.getElementById(name + i).checked = checked;
   }
+  */
 }
 
 function deleteCheckbox() {

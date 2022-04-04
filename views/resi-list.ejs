@@ -5,6 +5,10 @@
       <tr>
         <th>방</th>
         <th>이름</th>
+        <th>정상</th>
+        <th>무단</th>
+        <th>불응</th>
+        <th>재실</th>
       </tr>
     </thead>
     <tbody>
@@ -15,25 +19,25 @@
         <td>{{resident.name}}</td>
         <td>
           <label for="ok{{loop.index}}"><input type="checkbox" id="ok{{loop.index}}" name="ok" value='정상'
-              onclick='getCheckboxCnt(name); saveCheckbox(`ok{{loop.index}}`)' />
+              onclick='getCheckboxCnt(name); saveCheckbox(`${name}{{loop.index}}`)' />
             정상
           </label>
         </td>
         <td>
           <label for="out{{loop.index}}"><input type="checkbox" id="out{{loop.index}}" name="out" value='무단'
-              onclick='getCheckboxCnt(name); getResidents(name)' />
+              onclick='getCheckboxCnt(name); getResidents(name); saveCheckbox(`${name}{{loop.index}}`)' />
             무단
           </label>
         </td>
         <td>
           <label for="no{{loop.index}}"><input type="checkbox" id="no{{loop.index}}" name="no" value='불응'
-              onclick='getCheckboxCnt(name); getResidents(name)' />
+              onclick='getCheckboxCnt(name); getResidents(name); saveCheckbox(`${name}{{loop.index}}`)' />
             불응
           </label>
         </td>
         <td>
           <label for="in{{loop.index}}"><input type="checkbox" id="in{{loop.index}}" name="in" value='재실'
-              onclick='getCheckboxCnt(name)' />
+              onclick='getCheckboxCnt(name); saveCheckbox(`${name}{{loop.index}}`)' />
             재실
           </label>
         </td>
@@ -43,7 +47,7 @@
     </tbody>
   </table>
 
-  <button onclick="getCheckbox(`ok`, `{{residents.length}}` ) " >불러오기</button>
+  <button onclick="getCheckbox(`{{residents.length}}` ) " >불러오기</button>
   <button onclick="deleteCheckbox()">저장 내역 삭제</button>
 
   <div>
