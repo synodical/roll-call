@@ -3,7 +3,7 @@
 {% block content %}
 <div class="timeline">
   <h1 id="hi">hi</h1>
-  <form id="join-form" action="/user/{{user.id}}" method="post">
+  <form id="join-form" action="/users/{{user.id}}" method="post">
     <div class="input-group">
       <label for="join-uid">id</label>
       <input id="join-uid" type="uid" name="uid" value="{{user.uid}}">
