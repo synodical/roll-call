@@ -1,6 +1,6 @@
 async function delRow(row, obj) {
   try {
-    await axios.delete(`/resident/${row}`);
+    await axios.delete(`/residents/${row}`);
     var tr = obj.parentNode.parentNode;
     tr.parentNode.removeChild(tr);
   } catch (err) {
@@ -45,8 +45,9 @@ function saveCheckbox(name) {
 }
 
 function getCheckbox(numResidents) {
-  console.log(localStorage);
-
+  // console.log(localStorage);
+  // todo : 배열 string states[] 만들어서 상태 저장 후
+  // Iteration으로 상태 바꿔서 localStorage의 checkbox 불러오기
   for (var i = 1; i <= parseInt(numResidents); i++) {
     var checked = JSON.parse(localStorage.getItem("ok" + i));
     document.getElementById("ok" + i).checked = checked;
@@ -63,12 +64,6 @@ function getCheckbox(numResidents) {
     var checked = JSON.parse(localStorage.getItem("in" + i));
     document.getElementById("in" + i).checked = checked;
   }
-  /*
-  for (var i = 1; i <= parseInt(numResidents); i++) {
-    var checked = JSON.parse(localStorage.getItem(name + i));
-    document.getElementById(name + i).checked = checked;
-  }
-  */
 }
 
 function deleteCheckbox() {

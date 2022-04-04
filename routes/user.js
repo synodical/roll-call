@@ -55,7 +55,7 @@ router.post("/:id/list", isLoggedIn, async (req, res, next) => {
       name: name,
       user_id: req.user.id,
     });
-    return res.redirect(`/user/${id}/list`);
+    return res.redirect(`/users/${id}/list`);
   } catch (err) {
     console.error(err);
     return next(err);
