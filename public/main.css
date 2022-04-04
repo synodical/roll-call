@@ -76,3 +76,10 @@ input[type='text'], input[type='uid'], input[type='password'], textarea {
 #join-form { padding: 10px; text-align: center; }
 #hashtag-form { text-align: right; }
 footer { text-align: center; }
+
+
+@media screen and (max-width:500px) {
+  html {
+    font-size: 13px;
+  }
+}
