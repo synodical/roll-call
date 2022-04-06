@@ -18,7 +18,7 @@ function getCheckboxCnt(name) {
   document.getElementById(`result-${name}`).innerText = selectedElementsCnt;
 }
 
-function getResidents(name) {
+function getResidentsPenalty(name) {
   const query = `input[name="${name}"]:checked`;
   const selectedElements = document.querySelectorAll(query);
   let result = "";
