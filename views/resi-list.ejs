@@ -50,21 +50,26 @@
   <button onclick="getAllCheckbox(`{{residents.length}}` ) " >불러오기</button>
   <button onclick="deleteCheckbox()">저장 내역 삭제</button>
 
-  <div>
-    총원 {{residents.length}}
+  <div class="result-message">
+    <p>{{user.floor}} 층</p>
+  
+    <div>
+      총원 {{residents.length}}
+    </div>
+    <div>
+      정상 <span id="result-ok">0</span>
+    </div>
+    <div>
+      무단 <span id="result-out">0</span>
+      <div id="out-room"></div>
+    </div>
+    <div>
+      불응 <span id="result-no">0</span>
+      <div id="no-room"></div>
+    </div>
+    <div>
+      재실 <span id="result-in">0</span>
+    </div>
   </div>
-  <div>
-    정상 <span id="result-ok">0</span>
-  </div>
-  <div>
-    무단 <span id="result-out">0</span> 
-    <div id="out-room"></div>
-  </div>
-  <div>
-    불응 <span id="result-no">0</span>
-    <div id="no-room"></div>
-  </div>
-  <div>
-    재실 <span id="result-in">0</span>
-  </div>
+  
 </div>

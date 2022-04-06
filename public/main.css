@@ -1,6 +1,5 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
-p { width: 100px; margin: 0 auto; }
 
 .btn {
   display: inline-block;
@@ -77,6 +76,7 @@ input[type='text'], input[type='uid'], input[type='password'], textarea {
 #hashtag-form { text-align: right; }
 footer { text-align: center; }
 
+.result-message { margin: 10px; padding: auto; }
 
 @media screen and (max-width:500px) {
   html {
