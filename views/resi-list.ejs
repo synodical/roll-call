@@ -25,13 +25,13 @@
         </td>
         <td>
           <label for="out{{loop.index}}"><input type="checkbox" id="out{{loop.index}}" name="out" value='무단'
-              onclick='getCheckboxCnt(name); getResidents(name); saveCheckbox(`${name}{{loop.index}}`)' />
+              onclick='getCheckboxCnt(name); getResidentsPenalty(name); saveCheckbox(`${name}{{loop.index}}`)' />
             무단
           </label>
         </td>
         <td>
           <label for="no{{loop.index}}"><input type="checkbox" id="no{{loop.index}}" name="no" value='불응'
-              onclick='getCheckboxCnt(name); getResidents(name); saveCheckbox(`${name}{{loop.index}}`)' />
+              onclick='getCheckboxCnt(name); getResidentsPenalty(name); saveCheckbox(`${name}{{loop.index}}`)' />
             불응
           </label>
         </td>
@@ -47,7 +47,7 @@
     </tbody>
   </table>
 
-  <button onclick="getCheckbox(`{{residents.length}}` ) " >불러오기</button>
+  <button onclick="getAllCheckbox(`{{residents.length}}` ) " >불러오기</button>
   <button onclick="deleteCheckbox()">저장 내역 삭제</button>
 
   <div>
