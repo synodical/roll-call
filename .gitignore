@@ -1,6 +1,6 @@
 /node_modules
 
-/config/config.json
+/config/config.js
 
 dev.js
 
