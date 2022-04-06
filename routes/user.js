@@ -21,7 +21,7 @@ router.post("/:id", isLoggedIn, (req, res) => {
       return res.redirect("/");
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
 });
 
@@ -40,14 +40,13 @@ router.get("/:id/list", isLoggedIn, async (req, res, next) => {
       residents: residents,
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     next(err);
   }
 });
 
 router.post("/:id/list", isLoggedIn, async (req, res, next) => {
   const { room, name } = req.body;
-  //console.log(req.params.id);
   var id = req.params.id;
   try {
     await Resident.create({

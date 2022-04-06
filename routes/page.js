@@ -38,7 +38,7 @@ router.get("/", async (req, res, next) => {
         loginError: req.flash("loginError"),
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       next(err);
     }
   }

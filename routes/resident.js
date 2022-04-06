@@ -9,7 +9,7 @@ router.route("/:id").delete(async (req, res, next) => {
     const result = await Resident.destroy({ where: { id: req.params.id } });
     res.json(result);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     next(err);
   }
 });
