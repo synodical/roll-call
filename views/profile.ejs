@@ -2,11 +2,10 @@
 
 {% block content %}
 <div class="timeline">
-  <h1 id="hi">hi</h1>
   <form id="join-form" action="/users/{{user.id}}" method="post">
     <div class="input-group">
       <label for="join-uid">id</label>
-      <input id="join-uid" type="uid" name="uid" value="{{user.uid}}">
+      <input id="join-uid" type="uid" name="uid" value="{{user.uid}}" disabled/>
     </div>
     <div class="input-group">
       <label for="join-nick">닉네임</label>
@@ -21,9 +20,4 @@
 </div>
 {% endblock %}
 {% block script %}
-<script>
-  window.onload = function() {
-    var a = document.getElementById('hi').innerHTML ="hello"
-  }
-</script>
 {% endblock %}

@@ -6,7 +6,7 @@
 <body>
   <div class="container">
     <center>
-      <div><a href="/">home</a></div>
+      <div><a href="/" class="btn">home</a></div>
       <div class="profile-wrap">
         <div class="profile">
           {% if user and user.id %}
@@ -20,7 +20,7 @@
           {% else %}
           <form id="login-form" action="/auth/login" method="post">
             <div class="input-group">
-              <label for="uid">id</label>
+              <label for="uid">Id</label>
               <input id="uid" type="uid" name="uid" required autofocus>
             </div>
             <div class="input-group">
