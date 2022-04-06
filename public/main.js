@@ -22,7 +22,6 @@ function getResidentsPenalty(name) {
   const query = `input[name="${name}"]:checked`;
   const selectedElements = document.querySelectorAll(query);
   let result = "";
-
   selectedElements.forEach((el, index) => {
     let tr = el.parentNode.parentNode.parentNode;
     let Rroom = tr.firstElementChild;
@@ -38,31 +37,23 @@ function getResidentsPenalty(name) {
 }
 
 function saveCheckbox(name) {
-  console.log(name);
   var checkbox = document.getElementById(name);
-  console.log(checkbox.checked);
   localStorage.setItem(name, checkbox.checked);
 }
 
-function getCheckbox(numResidents) {
-  // console.log(localStorage);
-  // todo : 배열 string states[] 만들어서 상태 저장 후
+function getAllCheckbox(numResidents) {
+  // 배열 string states[] 만들어서 상태 저장 후
   // Iteration으로 상태 바꿔서 localStorage의 checkbox 불러오기
-  for (var i = 1; i <= parseInt(numResidents); i++) {
-    var checked = JSON.parse(localStorage.getItem("ok" + i));
-    document.getElementById("ok" + i).checked = checked;
-  }
-  for (var i = 1; i <= parseInt(numResidents); i++) {
-    var checked = JSON.parse(localStorage.getItem("out" + i));
-    document.getElementById("out" + i).checked = checked;
-  }
-  for (var i = 1; i <= parseInt(numResidents); i++) {
-    var checked = JSON.parse(localStorage.getItem("no" + i));
-    document.getElementById("no" + i).checked = checked;
-  }
-  for (var i = 1; i <= parseInt(numResidents); i++) {
-    var checked = JSON.parse(localStorage.getItem("in" + i));
-    document.getElementById("in" + i).checked = checked;
+  const states = ["ok", "out", "no", "in"];
+  for (let i = 0; i < states.length; i++) {
+    for (var j = 1; j <= parseInt(numResidents); j++) {
+      var checked = JSON.parse(localStorage.getItem(states[i] + j));
+      document.getElementById(states[i] + j).checked = checked;
+    }
+    getCheckboxCnt(states[i]);
+    if (states[i] === "out" || states[i] === "no") {
+      getResidentsPenalty(states[i]);
+    }
   }
 }
 
