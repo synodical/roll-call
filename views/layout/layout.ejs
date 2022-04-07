@@ -5,40 +5,41 @@
 
 <body>
   <div class="container">
-    <center>
-      <div><a href="/" class="btn">home</a></div>
-      <div class="profile-wrap">
-        <div class="profile">
+    {% include "./navbar.ejs" %}
+    
+      <div>
+        <div class>
           {% if user and user.id %}
-          <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}</div>
-          <div class="user-floor">{{user.floor + '층 잘 부탁드립니다!'}}</div>
+          <div>{{'안녕하세요! ' + user.nick + '님'}}</div>
+          <div>{{user.floor + '층 잘 부탁드립니다!'}}</div>
           <input id="my-id" type="hidden" value="{{user.id}}">
-          <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
 
           {% else %}
           <form id="login-form" action="/auth/login" method="post">
-            <div class="input-group">
-              <label for="uid">Id</label>
-              <input id="uid" type="uid" name="uid" required autofocus>
+            <div class="form-group">
+              <label class="form-label mt-4">Please log in</label>
+              <div class="form-floating mb-3">
+                <input type="uid" class="form-control" id="uid" name="uid" placeholder="Your Id">
+                <label for="floatingInput">Id</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
             </div>
-            <div class="input-group">
-              <label for="password">비밀번호</label>
-              <input id="password" type="password" name="password" required>
-            </div>
-            <a id="join" href="/join" class="btn">회원가입</a>
-            <button id="login" type="submit" class="btn">로그인</button>
-            <a id="kakao" href="/auth/kakao" class="btn">카카오톡</a>
+            <button id="login" type="submit" class="btn btn-primary">로그인</button>
           </form>
+          
           {% endif %}
         </div>
         {% include "./footer.ejs" %}
       </div>
-    </center>
+    
     {% block content %}
     {% endblock %}
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
+  <script src="main.js"></script>
   <script>
     window.onload = () => {
       if (new URL(location.href).searchParams.get('loginError')) {

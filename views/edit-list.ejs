@@ -2,6 +2,7 @@
 
 {% block content %}
 <div>
+
   <div class="timeline">
     <form id="resi-form" action="/users/{{user.id}}/list" method="post">
       <div class="input-group">
@@ -16,7 +17,7 @@
     </form>
   </div>
 
-  {% if residents %}
+  {% if residents.length !== 0 %}
 
   <div class="timeline">
     <h3>{{user.floor}}층 사생 명단</h3>
@@ -39,14 +40,12 @@
         {% endfor %}
       </tbody>
     </table>
-    <div>총원 {{residents.length}} (새로고침 시 총 인원이 적용됩니다.)</div>
+    <p>총원 {{residents.length}} (새로고침 시 총 인원이 적용됩니다.)</p>
   </div>
-
   {% else %}
-  <h2>
-    사생 명단을 입력해 주세요
-  </h2>
+  <h3>사생 명단이 비어있습니다. 사생을 추가해주세요.</h3>
   {% endif %}
+
 </div>
 {% endblock %}
 
