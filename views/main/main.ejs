@@ -4,9 +4,12 @@
 <div>점호를 마친 후에는 '저장 내역 삭제'를 눌러주세요</div>
 <div>점호 정보가 유실되었다면 '불러오기'를 눌러주세요</div>
 {% if user %}
-<h2><a href="rollcall">점호하러 가기</a></h2>
-<h2><a href="">사용법</a></h2>
-<h2><a id="my-profile" href="/users/{{user.id}}">내 정보 수정</a></h2>
+<ul><a href="rollcall">점호하러 가기</a></ul>
+<ul><a href="how2use">사용법</a></ul>
+<ul><a id="my-profile" href="/users/{{user.id}}">내 정보 수정</a></ul>
+<ul><a id="" href="/users/{{user.id}}/list">사생 명단 수정</a></ul>
+<ul><a id="patch-note" href="">Patch Note</a></ul>
+<ul><a href="">개발자에게 건의하기</a></ul>
 {% endif %}
 
 {% endblock %}
