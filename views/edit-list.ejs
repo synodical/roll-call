@@ -1,0 +1,55 @@
+{% extends './layout/layout.ejs' %}
+
+{% block content %}
+<div>
+  <div class="timeline">
+    <form id="resi-form" action="/users/{{user.id}}/list" method="post">
+      <div class="input-group">
+        <label for="resi-room">방</label>
+        <input id="resi-room" type="text" name="room">
+      </div>
+      <div class="input-group">
+        <label for="join-nick">이름</label>
+        <input id="join-nick" type="text" name="name">
+      </div>
+      <button id="resi-btn" type="submit" class="btn">사생 추가</button>
+    </form>
+  </div>
+
+  {% if residents %}
+
+  <div class="timeline">
+    <h3>{{user.floor}}층 사생 명단</h3>
+    <table border="1" cellpadding="10" id="resi-list-id">
+      <thead>
+        <tr>
+          <th>방</th>
+          <th>이름</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for resident in residents %}
+        <tr>
+          <td>{{resident.room}}</td>
+          <td>{{resident.name}}</td>
+          <td>
+            <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div>총원 {{residents.length}} (새로고침 시 총 인원이 적용됩니다.)</div>
+  </div>
+
+  {% else %}
+  <h2>
+    사생 명단을 입력해 주세요
+  </h2>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/main.js"></script>
+{% endblock %}

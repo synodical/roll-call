@@ -14,7 +14,6 @@
           <div class="user-floor">{{user.floor + '층 잘 부탁드립니다!'}}</div>
           <input id="my-id" type="hidden" value="{{user.id}}">
           <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
-          <a id="resident-list" href="/users/{{user.id}}/list" class="btn">사생 수정</a>
 
           {% else %}
           <form id="login-form" action="/auth/login" method="post">
