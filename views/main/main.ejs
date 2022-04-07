@@ -1,10 +1,12 @@
-{% extends './layout/layout.ejs' %}
+{% extends '../layout/layout.ejs' %}
 
 {% block content %}
 <div>점호를 마친 후에는 '저장 내역 삭제'를 눌러주세요</div>
 <div>점호 정보가 유실되었다면 '불러오기'를 눌러주세요</div>
 {% if user %}
-{% include "./resi-list.ejs" %}
+<h2><a href="rollcall">점호하러 가기</a></h2>
+<h2><a href="">사용법</a></h2>
+<h2><a id="my-profile" href="/users/{{user.id}}">내 정보 수정</a></h2>
 {% endif %}
 
 {% endblock %}

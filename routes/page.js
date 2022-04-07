@@ -16,9 +16,30 @@ router.get("/join", isNotLoggedIn, (req, res) => {
   });
 });
 
+router.get("/rollcall", isLoggedIn, async (req, res, next) => {
+  try {
+    const residents = await Resident.findAll({
+      order: [["room", "ASC"]],
+      include: {
+        model: User,
+        where: { uid: req.user.uid },
+      },
+    });
+    res.render("resi-list", {
+      title: "점호",
+      user: req.user,
+      residents: residents,
+      loginError: req.flash("loginError"),
+    });
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
+
 router.get("/", async (req, res, next) => {
   if (!req.user) {
-    res.render("main", {
+    res.render("main/main.ejs", {
       title: "점호",
       loginError: req.flash("loginError"),
     });
@@ -31,7 +52,7 @@ router.get("/", async (req, res, next) => {
           where: { uid: req.user.uid },
         },
       });
-      res.render("main", {
+      res.render("main/main.ejs", {
         title: "점호",
         user: req.user,
         residents: residents,
