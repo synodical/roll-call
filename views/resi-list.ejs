@@ -53,8 +53,8 @@
     </tbody>
   </table>
 
-  <button onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
-  <button onclick="deleteCheckbox()">저장 내역 삭제</button>
+  <button type="button" class="btn btn-warning" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
+  <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
 
   <div class="result-message">
     <p>{{user.floor}} 층</p>
