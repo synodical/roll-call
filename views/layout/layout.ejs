@@ -31,9 +31,7 @@
             <div class="my-3" style="float: none; margin:0 auto;">
               <button id="login" type="submit" class="btn btn-primary">로그인</button>
             </div>
-            
           </div>
-          
         </form>
         
         {% endif %}
@@ -49,7 +47,7 @@
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="main.js"></script>
+  <script src="/main.js"></script>
   <script>
     window.onload = () => {
       if (new URL(location.href).searchParams.get('loginError')) {
