@@ -7,7 +7,7 @@
   <div class="container-fluid">
     {% include "./navbar.ejs" %}
     
-      <div class="container-fluid my-4"></div>
+      <div class="container-fluid my-4">
         {% if user and user.id %}
         <div class="card border-warning mb-3" style="max-width: 30rem; float: none; margin:0 auto;">
           <div class="card-body">
@@ -18,7 +18,7 @@
         
         {% else %}
         <form id="login-form" action="/auth/login" method="post">
-          <div class="form-group">
+          <div class="form-group" style="max-width: 20rem; float: none; margin:0 auto;">
             <label class="form-label mt-4">Please log in</label>
             <div class="form-floating mb-3">
               <input type="uid" class="form-control" id="uid" name="uid" placeholder="Your Id">
@@ -28,8 +28,12 @@
               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
               <label for="floatingPassword">Password</label>
             </div>
+            <div class="my-3" style="float: none; margin:0 auto;">
+              <button id="login" type="submit" class="btn btn-primary">로그인</button>
+            </div>
+            
           </div>
-          <button id="login" type="submit" class="btn btn-primary">로그인</button>
+          
         </form>
         
         {% endif %}
@@ -38,9 +42,9 @@
         {% endblock %}
       </div>
     
-    
-
     {% include "./footer.ejs" %}
+    
+    
 
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
