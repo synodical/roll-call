@@ -4,7 +4,7 @@
 <div>점호를 마친 후에는 '저장 내역 삭제'를 눌러주세요</div>
 <div>점호 정보가 유실되었다면 '불러오기'를 눌러주세요</div>
 
-<div class="timeline">
+<div class="container-fluid my-3">
   <h3>{{user.floor}}층 사생 명단</h3>
   <table border="1" cellpadding="10" id="resi-list-id">
     <thead>
@@ -53,8 +53,12 @@
     </tbody>
   </table>
 
+
+<div class="container-fluid my-3">
   <button type="button" class="btn btn-warning" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
   <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
+</div>
+  
 
   <div class="result-message">
     <p>{{user.floor}} 층</p>
