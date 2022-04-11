@@ -2,29 +2,28 @@
 
 {% block content %}
 <div>
-
-  <div class="timeline">
+  <div class="container-fluid">
+  
     <form id="resi-form" action="/users/{{user.id}}/list" method="post">
-      <div class="input-group">
-        <label for="resi-room">방</label>
-        <input id="resi-room" type="text" name="room">
+      <div class="form-group" style="max-width: 20rem; float: none; margin:0 auto;">
+        <label class="col-form-label mt-1" for="resi-room">방</label>
+        <input id="resi-room" name="room" type="text" class="form-control">
+        <label class="col-form-label mt-1" for="resi-name">이름</label>
+        <input id="resi-name" name="name" type="text" class="form-control">
+        <button id="resi-btn" type="submit" class="btn btn-outline-primary my-4">사생 추가</button>
       </div>
-      <div class="input-group">
-        <label for="join-nick">이름</label>
-        <input id="join-nick" type="text" name="name">
-      </div>
-      <button id="resi-btn" type="submit" class="btn">사생 추가</button>
+      
     </form>
   </div>
 
   {% if residents.length !== 0 %}
 
-  <div class="timeline">
+  <div class="container-fluid my-5">
     <h3>{{user.floor}}층 사생 명단</h3>
-    <table border="1" cellpadding="10" id="resi-list-id">
+    <table class="table table-hover" border="1" cellpadding="10" id="resi-list-id">
       <thead>
-        <tr>
-          <th>방</th>
+        <tr class="table-light">
+          <th scope="row">방</th>
           <th>이름</th>
         </tr>
       </thead>
@@ -34,7 +33,7 @@
           <td>{{resident.room}}</td>
           <td>{{resident.name}}</td>
           <td>
-            <button type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
+            <button class="btn btn-outline-danger" type="button" id="resi-del-btn" value="삭제" onclick="delRow( '{{resident.id}}', this )">삭제</button>
           </td>
         </tr>
         {% endfor %}
@@ -50,5 +49,4 @@
 {% endblock %}
 
 {% block script %}
-<script src="/main.js"></script>
 {% endblock %}
