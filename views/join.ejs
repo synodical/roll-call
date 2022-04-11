@@ -1,35 +1,70 @@
-{% extends './layout/layout.ejs' %}
+<!DOCTYPE html>
+<html lang="ko">
 
-{% block content %}
-<div class="timeline">
-  <form id="join-form" action="/auth/join" method="post">
-    <div class="input-group">
-      <label for="join-uid">Id</label>
-      <input id="join-uid" type="uid" name="uid" placeholder="영어 or 영어+숫자">
-    </div>
-    <div class="input-group">
-      <label for="join-nick">닉네임</label>
-      <input id="join-nick" type="text" name="nick" placeholder="한글도 괜찮습니다">
-    </div>
-    <div class="input-group">
-      <label for="join-floor">담당 층</label>
-      <input id="join-floor" type="text" name="floor" placeholder="반드시 담당 층 1개만!">
-    </div>
-    <div class="input-group">
-      <label for="join-password">비밀번호</label>
-      <input id="join-password" type="password" name="password" placeholder="분실된 비밀번호는 못 찾아드립니다">
-    </div>
-    <button id="join-btn" type="submit" class="btn">회원가입</button>
-  </form>
+{% include "./layout/head.ejs" %}
+
+<body>
+  {% include "./layout/navbar.ejs" %}
+<div class="row my-3">
+  <div class="col-lg-12">
+    <h3>회원가입 시 주의사항</h3>
+    <p>담당 층을 <strong class="text-primary">한 개만</strong> 적어주세요!
+      <small class="text-muted">예) 19-20층장이라면, 숫자 '19' 만 입력</small>
+    </p>
+    <p>아이디는 <strong>영어 혹은 숫자</strong>의 조합으로 적어주세요.
+      <small class="text-muted">(한글 불가)</small>
+    </p>
+    <p>닉네임은 영어, 한글, 숫자의 조합 안에서 가능합니다.</p>
+    <p class="text-danger">비밀번호는 전부 암호화하여 DB에 저장되므로, 잃어버린 비밀번호는 찾아드릴 수 없습니다.</p>
+  </div>
 </div>
-{% endblock %}
 
-{% block script %}
-<script>
-  window.onload = () => {
-    if (new URL(location.href).searchParams.get('error')) {
-      alert('이미 존재하는 이메일입니다.');
-    }
-  };
-</script>
-{% endblock %}
+<div class="container-fluid">
+
+  <div class="container-fluid my-4">
+
+    <form id="join-form" action="/auth/join" method="post">
+      <div class="form-group" style="max-width: 20rem; float: none; margin:0 auto;">
+        <label class="form-label mt-4">Please sign in</label>
+        <div class="form-floating mb-3">
+          <input type="uid" class="form-control" id="uid" name="uid" placeholder="영어 or 영어+숫자">
+          <label for="floatingInput">Id</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nick" name="nick" placeholder="한글도 ok">
+          <label for="floatingPassword">닉네임</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floor" name="floor" placeholder="반드시 담당 층 1개만!">
+          <label for="floatingPassword">담당 층</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="password" name="password" placeholder="분실된 비밀번호는 못 찾아드립니다">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="my-3" style="float: none; margin:0 auto;">
+          <button id="login" type="submit" class="btn btn-primary">회원가입</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+</div>
+    {% include "./layout/footer.ejs" %}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+    window.onload = () => {
+      if (new URL(location.href).searchParams.get('error')) {
+        alert('이미 존재하는 아이디입니다.');
+      }
+    };
+  </script>
+  {% block script %}
+  {% endblock %}
+</body>
+
+</html>

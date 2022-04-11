@@ -45,6 +45,13 @@ router.get("/join", isNotLoggedIn, (req, res) => {
   });
 });
 
+router.get("/how2use", (req, res) => {
+  res.render("how2use", {
+    title: "사용법",
+    user: req.user,
+  });
+});
+
 router.get("/", async (req, res, next) => {
   res.render("main/main.ejs", {
     title: "점호",
