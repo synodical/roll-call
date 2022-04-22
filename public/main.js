@@ -60,3 +60,15 @@ function getAllCheckbox(numResidents) {
 function deleteCheckbox() {
   localStorage.clear();
 }
+
+function isOK(name) {
+  // 선택된 목록 가져오기
+  const isChecked = document.querySelector(`input[name=${name}]`).checked;
+  let result = "";
+  if (isChecked) {
+    result = "정상";
+  } else {
+    result = "교체 예정";
+  }
+  document.getElementById(`result-${name}`).innerText = result;
+}
