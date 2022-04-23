@@ -52,8 +52,12 @@
       {% endfor %}
     </tbody>
   </table>
-
-
+  <label for="temp"><input type="checkbox" id="temp" name="temp" value='체온계' onclick=""/>
+    체온계
+  </label>
+  <label for="hand"><input type="checkbox" id="hand" name="hand" value='손소독제' />
+    손소독제
+  </label>
 <div class="container-fluid my-3">
   <button type="button" class="btn btn-outline-success" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
   <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
