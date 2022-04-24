@@ -21,7 +21,7 @@
         {% else %}
         <form id="login-form" action="/auth/login" method="post">
           <div class="form-group" style="max-width: 20rem; float: none; margin:0 auto;">
-            <label class="form-label mt-4">Please log in</label>
+            <label class="form-label mt-4"><h3>Please log in</h3></label>
             <div class="form-floating mb-3">
               <input type="uid" class="form-control" id="uid" name="uid" placeholder="Your Id">
               <label for="uid">Id</label>
@@ -30,7 +30,7 @@
               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
               <label for="password">Password</label>
             </div>
-            <div class="d-grid gap-2" style="float: none; margin:0 auto;">
+            <div class="d-grid gap-2 mb-5 pb-5" style="float: none; margin:0 auto;">
               <button id="login" type="submit" class="btn btn-primary">로그인</button>
             </div>
           </div>
