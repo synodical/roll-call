@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-{% include "./layout/head" %}
+{% include "./layout/head.html" %}
 
 <body>
-  {% include "./layout/navbar" %}
+  {% include "./layout/navbar.html" %}
 <div class="row my-3">
   <div class="col-lg-12">
     <h3>회원가입 시 주의사항</h3>
@@ -25,7 +25,9 @@
 
     <form id="join-form" action="/auth/join" method="post">
       <div class="form-group" style="max-width: 20rem; float: none; margin:0 auto;">
-        <label class="form-label mt-4">Please sign in</label>
+        <label class="form-label mt-4">
+          <h3>Please Sign Up</h3>
+        </label>
         <div class="form-floating mb-3">
           <input type="uid" class="form-control" id="uid" name="uid" placeholder="영어 or 영어+숫자">
           <label for="uid">Id</label>
@@ -52,7 +54,7 @@
   </div>
 
 </div>
-    {% include "./layout/footer" %}
+    {% include "./layout/footer.html" %}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="main.js"></script>
