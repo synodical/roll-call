@@ -53,7 +53,7 @@ router.get("/how2use", (req, res) => {
 });
 
 router.get("/", async (req, res, next) => {
-  res.render("main/main.ejs", {
+  res.render("main/main.html", {
     title: "점호",
     user: req.user,
     loginError: req.flash("loginError"),

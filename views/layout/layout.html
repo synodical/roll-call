@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-{% include "./head.ejs" %}
+{% include "./head.html" %}
 
 <body>
   <div class="container-fluid">
-    {% include "./navbar.ejs" %}
+    {% include "./navbar.html" %}
     <div class="row my-3">
       <div class="col-lg-12">
         <div class="container-fluid my-4">
@@ -40,7 +40,7 @@
 
         {% block content %}
         {% endblock %}
-        {% include "./footer.ejs" %}
+        {% include "./footer.html" %}
       
       </div>
     </div>
