@@ -5,3 +5,5 @@
 dev.js
 
 .env
+
+.DS_Store
