@@ -45,7 +45,7 @@ router.get("/join", isNotLoggedIn, (req, res) => {
   });
 });
 
-router.get("/how2use", (req, res) => {
+router.get("/how2use", isLoggedIn, (req, res) => {
   res.render("how2use", {
     title: "사용법",
     user: req.user,
