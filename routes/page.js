@@ -53,7 +53,7 @@ router.get("/how2use", isLoggedIn, (req, res) => {
 });
 
 router.get("/", async (req, res, next) => {
-  res.render("main/main.html", {
+  res.render("main/main-list.html", {
     title: "점호",
     user: req.user,
     loginError: req.flash("loginError"),
