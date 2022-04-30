@@ -5,7 +5,7 @@ const Resident = require("../models").Resident;
 const router = express.Router();
 
 router.get("/list", isLoggedIn, (req, res) => {
-  res.render("edit-list", { title: "사생 목록", user: req.user });
+  res.render("main/edit-list.html", { title: "사생 목록", user: req.user });
 });
 
 router.get("/join", isNotLoggedIn, (req, res) => {
@@ -25,7 +25,7 @@ router.get("/rollcall", isLoggedIn, async (req, res, next) => {
         where: { uid: req.user.uid },
       },
     });
-    res.render("resi-list", {
+    res.render("main/resi-list", {
       title: "점호",
       user: req.user,
       residents: residents,
@@ -46,14 +46,14 @@ router.get("/join", isNotLoggedIn, (req, res) => {
 });
 
 router.get("/how2use", isLoggedIn, (req, res) => {
-  res.render("how2use", {
+  res.render("main/how2use.html", {
     title: "사용법",
     user: req.user,
   });
 });
 
 router.get("/", async (req, res, next) => {
-  res.render("main/main-list.html", {
+  res.render("main/main-page.html", {
     title: "점호",
     user: req.user,
     loginError: req.flash("loginError"),
