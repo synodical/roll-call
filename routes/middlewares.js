@@ -2,7 +2,8 @@ exports.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
   } else {
-    res.status(403).send("로그인 필요");
+    res.write("<script>alert('please log in again')</script>"); // 한글은 깨진다. 수정 요망
+    res.write('<script>window.location="/"</script>');
   }
 };
 
