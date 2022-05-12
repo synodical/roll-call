@@ -65,9 +65,9 @@
   
   
   <div class="card border-warning py-5 px-5 my-5" style="max-width: 30rem; float: none; margin:0 auto;">
-    <p>{{user.floor}} ~
+    <p>{{user.floor}}
       {% if user.floor >= 15 %}
-      {{ user.floor + 1 }}
+      ~ {{ user.floor + 1 }}
       {% endif %}
       층
     </p>
