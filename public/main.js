@@ -22,15 +22,20 @@ function getResidentsPenalty(name) {
   const query = `input[name="${name}"]:checked`;
   const selectedElements = document.querySelectorAll(query);
   let result = "";
+
   selectedElements.forEach((el, index) => {
     let tr = el.parentNode.parentNode.parentNode;
     let Rroom = tr.firstElementChild;
     let Rname = tr.children[1];
-
+    if (index === 0) {
+      result += "(";
+    }
     result += Rroom.textContent + " " + Rname.textContent;
     // 마지막 단어는 쉼표 없애기
     if (index !== selectedElements.length - 1) {
       result += ", ";
+    } else {
+      result += ")";
     }
   });
   document.getElementById(`${name}-room`).innerText = result;

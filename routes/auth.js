@@ -3,12 +3,14 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { isLoggedIn, isNotLoggedIn } = require("./middlewares");
 const User = require("../models").User;
+const models = require("../models");
 
 const router = express.Router();
 
 router.post("/join", isNotLoggedIn, async (req, res, next) => {
   const { uid, nick, floor, password } = req.body;
   try {
+    console.log(models);
     const exUser = await User.findOne({ where: { uid } });
     if (exUser) {
       return res.redirect("/join?error=exist");
