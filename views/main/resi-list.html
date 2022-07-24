@@ -55,9 +55,17 @@
   <label for="sanitizer"><input type="checkbox" id="sanitizer" name="sanitizer" value='손소독제' onclick="isOK(name)" />
     손소독제
   </label>
-  <label for="thermometer"><input type="checkbox" id="thermometer" name="thermometer" value='체온계' onclick="isOK(name)"/>
-    체온계
+  
+  <label for="thermometer{{user.floor}}"><input type="checkbox" id="thermometer{{user.floor}}" name="thermometer{{user.floor}}"
+      value='체온계' onclick="isOK(name)" />
+    {{ user.floor }}층 체온계
   </label>
+  {% if user.floor >= 15 %}
+  <label for="thermometer{{user.floor+1}}"><input type="checkbox" id="thermometer{{user.floor+1}}" name="thermometer{{user.floor+1}}"
+      value='체온계' onclick="isOK(name)" />
+    {{ user.floor+1 }}층 체온계
+  </label>
+  {% endif %}
 <div class="container-fluid my-3">
   <button type="button" class="btn btn-outline-success" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
   <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
@@ -92,7 +100,10 @@
     <br>
     <div>
       손소독제 <span id="result-sanitizer">교체 예정</span>,
-      체온계 <span id="result-thermometer">교체 예정</span>입니다.
+      {{user.floor}}층 체온계 <span id="result-thermometer{{user.floor}}">교체 예정</span>입니다.
+      {% if user.floor >= 15 %}
+        {{user.floor+1}}층 체온계 <span id="result-thermometer{{user.floor+1}}">교체 예정</span>입니다.
+      {% endif %}
     </div>
     
   </div>
