@@ -59,6 +59,8 @@ router.get("/board", isLoggedIn, (req, res) => {
   });
 });
 
+router.post("/board", isLoggedIn, (req, res) => {});
+
 router.get("/", async (req, res, next) => {
   res.render("main/main-page.html", {
     title: "점호",
