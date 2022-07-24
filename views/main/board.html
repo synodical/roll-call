@@ -2,35 +2,15 @@
 
 {% block content %}
 {% if user %}
-<div class="bs-docs-section">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="page-header">
-        <h1 id="typography">어서오세요!</h1>
-      </div>
-    </div>
+<form>
+  <div class="form-group">
+    <label for="suggestTextArea" class="form-label mt-4">개발자에게 건의하기</label>
+    <textarea class="form-control" id="suggestTextArea" rows="5" placeholder="겪은 불편함을 공유해주세요! 기쁜 마음으로 개선하겠습니다."></textarea>
   </div>
-  <div class="row my-3">
-    <div class="col-lg-12">
-      <h2>사용법</h2>
-      <p>1. 점호 시작 전 로그인하여 '점호하러 가기' 를 누른다.</p>
-      <p>2. 외박자 명단을 확인 후 '정상' 에 체크한다.</p>
-      <p>3. 각 호실을 점검하며 상태를 체크한다. </p>
-      <p class="text-danger">3-1. 이때, '정상'에서 '재실' 등으로 상태 변경 시 체크박스를 해제하셔야 합니다.</p>
-    </div>
+  <div class="my-2">
+    <button type="submit" class="btn btn-primary">의견 제출하기</button>
   </div>
-  <div class="row my-3">
-    <div class="col-lg-12">
-      <h2>점호 도중에 정보가 유실됐어요 ㅠㅠ</h2>
-      <p>침착하게<strong class="text-primary"> '불러오기'</strong> 를 눌러주세요.
-        <small class="text-muted">유실된 체크박스가 다시 돌아옵니다.</small>
-      </p>
-      <p>점호를 마친 후 '저장 내역 삭제'를 통해 그날의 점호 내용을 지워주세요.</p>
-    </div>
-  </div>
-  
-</div>
-
+</form>
 
 
 {% endif %}
