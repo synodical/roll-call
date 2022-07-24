@@ -1,6 +1,7 @@
 {% extends '../layout/layout.html' %}
 
 {% block content %}
+<h3 class="mt-5 mb-3">사용 전 <a href="/how2use">사용법</a>을 반드시 읽어주세요.</h3>
 <p>점호를 마친 후에는 <strong>'저장 내역 삭제'</strong>를 눌러주세요.</p>
 <p>점호 정보가 유실되었다면 <strong>'불러오기'</strong>를 눌러주세요.</p>
 
@@ -19,7 +20,6 @@
     </thead>
     <tbody>
       {% for resident in residents %}
-
       <tr>
         <td>{{resident.room}}</td>
         <td>{{resident.name}}</td>
@@ -105,9 +105,7 @@
         {{user.floor+1}}층 체온계 <span id="result-thermometer{{user.floor+1}}">교체 예정</span>입니다.
       {% endif %}
     </div>
-    
   </div>
-
 </div>
 
 {% endblock %}
