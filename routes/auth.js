@@ -10,7 +10,6 @@ const router = express.Router();
 router.post("/join", isNotLoggedIn, async (req, res, next) => {
   const { uid, nick, floor, password } = req.body;
   try {
-    console.log(models);
     const exUser = await User.findOne({ where: { uid } });
     if (exUser) {
       return res.redirect("/join?error=exist");
