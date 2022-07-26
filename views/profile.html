@@ -19,6 +19,11 @@
     
   </form>
 </div>
+<div style="max-width: 20rem; float: none; margin:0 auto;">
+  <button id="signout" type="button" class="btn btn-danger my-5" onclick="delUser( '{{user.id}}', this )">
+    회원 탈퇴 및 모든 정보 삭제</button>
+</div>
+
 {% endblock %}
 {% block script %}
 {% endblock %}

@@ -8,6 +8,25 @@ router.get("/:id", isLoggedIn, (req, res) => {
   res.render("profile", { title: "프로필 조회", user: req.user });
 });
 
+router.delete("/:id", isLoggedIn, (req, res) => {
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  Resident.destroy({
+    where: {
+      user_id: req.user.id,
+    },
+  })
+    .then((result) => {
+      return res.redirect(303, "/"); // redirect 안되네요... 고쳐야겠다...
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 router.post("/:id", isLoggedIn, (req, res) => {
   User.update(
     { uid: req.body.uid, nick: req.body.nick, floor: req.body.floor },

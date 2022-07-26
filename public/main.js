@@ -8,6 +8,16 @@ async function delRow(row, obj) {
   }
 }
 
+async function delUser(uid, obj) {
+  try {
+    await axios.delete(`/users/${uid}`);
+    alert("탈퇴되었습니다.");
+    window.location.href = "https://hongik-dorm.herokuapp.com/";
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 function getCheckboxCnt(name) {
   // 선택된 목록 가져오기
   const query = `input[name="${name}"]:checked`;
