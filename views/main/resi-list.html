@@ -66,45 +66,55 @@
     {{ user.floor+1 }}층 체온계
   </label>
   {% endif %}
-<div class="container-fluid my-3">
-  <button type="button" class="btn btn-outline-success" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
-  <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
-</div>
+  <div class="my-3">
+    <button type="button" class="btn btn-outline-success" onclick="getAllCheckbox(`{{residents.length}}` ) ">불러오기</button>
+    <button type="button" class="btn btn-danger" onclick="deleteCheckbox()">저장 내역 삭제</button>
+  </div>
   
-  
-  <div class="card border-warning py-5 px-5 my-5" style="max-width: 30rem; float: none; margin:0 auto;">
-    <p>{{user.floor}}{% if user.floor >= 15 %}-{{ user.floor + 1 }}
-      {% endif %}
-      층
-    </p>
-    <br>
-    <div>
-      총원 {{residents.length}}
+  <div style="max-width: 30rem; float: none; margin:0 auto;">
+    <p class="text-muted">점호 보고 양식입니다.</p>
+    <div class="card border-warning py-5 px-5 my-3">
+      <p>{{user.floor}}{% if user.floor >= 15 %}-{{ user.floor + 1 }}
+        {% endif %}
+        층
+      </p>
+      <br>
+      <div>
+        총원 {{residents.length}}
+      </div>
+      <div>
+        정상 <span id="result-ok">0</span>
+      </div>
+      <div>
+        무단 <span id="result-out">0</span>
+        <div id="out-room"></div>
+      </div>
+      <div>
+        불응 <span id="result-no">0</span>
+        <div id="no-room"></div>
+      </div>
+      <div>
+        재실 <span id="result-in">0</span>
+      </div>
+      <br>
+      <div>
+        손소독제 <span id="result-sanitizer">교체 예정</span>,
+        {% if user.floor < 15 %}
+          체온계 <span id="result-thermometer{{user.floor}}">교체 예정</span>입니다.
+        {% else %}
+          {{user.floor}}층 체온계 <span id="result-thermometer{{user.floor}}">교체 예정</span>,
+          {{user.floor+1}}층 체온계 <span id="result-thermometer{{user.floor+1}}">교체 예정</span>입니다.
+        {% endif %}
+      </div>
     </div>
-    <div>
-      정상 <span id="result-ok">0</span>
+    
+    <p class="text-muted pt-3">무단 외박자에게 보내는 문자 양식입니다.</p>
+    <div class="card border-success py-5 px-5 my-3">
+      [홍익대학교 2기숙사 {{ user.floor }}{% if user.floor >= 15 %}-{{ user.floor + 1 }}
+      {% endif %}층 층장] <br>
+      ooo 사생은 금일 무단 외박하여 연락드립니다. 외박 시 클래스넷을 통해 외박신청을 해야 합니다. 무단 외박 시 벌점 2점이 부과되며, 벌점 7점이 누적되면 강제퇴사되오니 주의 바랍니다.
     </div>
-    <div>
-      무단 <span id="result-out">0</span>
-      <div id="out-room"></div>
-    </div>
-    <div>
-      불응 <span id="result-no">0</span>
-      <div id="no-room"></div>
-    </div>
-    <div>
-      재실 <span id="result-in">0</span>
-    </div>
-    <br>
-    <div>
-      손소독제 <span id="result-sanitizer">교체 예정</span>,
-      {% if user.floor < 15 %}
-        체온계 <span id="result-thermometer{{user.floor}}">교체 예정</span>입니다.
-      {% else %}
-        {{user.floor}}층 체온계 <span id="result-thermometer{{user.floor}}">교체 예정</span>,
-        {{user.floor+1}}층 체온계 <span id="result-thermometer{{user.floor+1}}">교체 예정</span>입니다.
-      {% endif %}
-    </div>
+
   </div>
 </div>
 
