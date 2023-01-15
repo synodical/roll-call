@@ -1,7 +1,7 @@
 # 🏢 Roll call website for Hongik Dormitory
 
 - 출석부와 유사한 인원 체크 웹 사이트
-- link: https://hongik-dorm.herokuapp.com/
+- link: https://hongik-dorm-synodical.koyeb.app/
 - 회원 가입 후 사용 가능
 
 ## 💍 Features
